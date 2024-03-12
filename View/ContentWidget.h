@@ -16,10 +16,10 @@ class ContentWidget : public QWidget
     private:
         QHBoxLayout* contentLayout;
         //non devo cancellare è giusto salvare di copia per lavorare poi
-        std::vector<Sensor::WeatherStation>& myWeatherStations;
+        std::vector<Sensor::WeatherStation*>& myWeatherStations;
         View::WeatherStationPanel* weatherStationPanel;
     public:
-        explicit ContentWidget(std::vector<Sensor::WeatherStation>& myWeatherStations,QWidget *parent = nullptr);
+        explicit ContentWidget(std::vector<Sensor::WeatherStation*>& myWeatherStations,QWidget *parent = nullptr);
         void update();
 
 };

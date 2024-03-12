@@ -12,7 +12,8 @@ const std::string& WeatherStation::getStationName() const {
 }
 
 void WeatherStation::setStationName(const std::string& newName){
-    qDebug() << "before setname" <<QString::fromStdString(newName);
+    qDebug() << "this" << this;
+    //qDebug() << "before setname" <<QString::fromStdString(newName);
     weatherStationName = newName;
     qDebug() << "after set name" <<QString::fromStdString(weatherStationName);
 }

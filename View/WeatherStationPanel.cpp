@@ -1,7 +1,7 @@
 #include "WeatherStationPanel.h"
 #include "WeatherStationWidget.h"
 namespace View{
-WeatherStationPanel::WeatherStationPanel(std::vector<Sensor::WeatherStation>& myWeatherStations,QWidget *parent)
+WeatherStationPanel::WeatherStationPanel(std::vector<Sensor::WeatherStation*>& myWeatherStations,QWidget *parent)
     : QWidget{parent}{
 
     weatherStationsMainLayout = new QVBoxLayout(this);
@@ -26,14 +26,17 @@ WeatherStationPanel::WeatherStationPanel(std::vector<Sensor::WeatherStation>& my
     weatherStationsMainLayout->addWidget(createNewStation);
     //connect
 }
-void WeatherStationPanel::showAllWidgets(std::vector<Sensor::WeatherStation>& myWeatherStations){
+void WeatherStationPanel::showAllWidgets(std::vector<Sensor::WeatherStation*>& myWeatherStations){
     WeatherStationWidget* p1;
-    for(Sensor::WeatherStation i: myWeatherStations){
-        p1 = new WeatherStationWidget(&i);
+    for(Sensor::WeatherStation *i: myWeatherStations){
+
+        p1 = new WeatherStationWidget(i);
         qDebug() <<"my widgets memory address" << p1;
         weatherStationsPanels.push_back(p1);
         qScrollLayout->addWidget(p1);
+        i->setStationName("new sensor");
         p1->showName();
+
         //connect(p1,&WeatherStationWidget::refreshWidget,this,&WeatherStationPanel::refreshPanel);
         //delete p1;
     }

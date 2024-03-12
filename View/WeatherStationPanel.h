@@ -24,8 +24,8 @@ class WeatherStationPanel : public QWidget
         QPushButton* AddNewWeatherStationButton;
 
     public:
-        explicit WeatherStationPanel(std::vector<Sensor::WeatherStation>& myWeatherStations,QWidget *parent = nullptr);
-        void showAllWidgets(std::vector<Sensor::WeatherStation>& myWeatherStations);
+        explicit WeatherStationPanel(std::vector<Sensor::WeatherStation*>& myWeatherStations,QWidget *parent = nullptr);
+        void showAllWidgets(std::vector<Sensor::WeatherStation*> &myWeatherStations);
     signals:
         void thereIsSomethingChanged();
     public slots:
