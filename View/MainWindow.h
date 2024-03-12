@@ -19,10 +19,10 @@ class MainWindow : public QMainWindow
         View::ContentWidget* contentWidget;
         QVBoxLayout* mainLayout;
         //tiene tracci di tutti dati
-        std::vector<Sensor::WeatherStation>& myWeatherStations;
+        std::vector<Sensor::WeatherStation*>& myWeatherStations;
 
     public:
-        MainWindow(std::vector<Sensor::WeatherStation>& myWeatherStations,QWidget *parent = nullptr);
+        MainWindow(std::vector<Sensor::WeatherStation*>& myWeatherStations,QWidget *parent = nullptr);
         ~MainWindow();
 
 };

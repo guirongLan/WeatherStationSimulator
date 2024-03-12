@@ -1,6 +1,6 @@
 #include "ContentWidget.h"
 namespace View{
-ContentWidget::ContentWidget(std::vector<Sensor::WeatherStation>& myWeatherStations,QWidget *parent)
+ContentWidget::ContentWidget(std::vector<Sensor::WeatherStation*>& myWeatherStations,QWidget *parent)
 : QWidget{parent},myWeatherStations(myWeatherStations)
 {
     contentLayout = new QHBoxLayout(this);

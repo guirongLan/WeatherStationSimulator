@@ -3,8 +3,8 @@
 #include <QPushButton>
 namespace View{
 //ogni QWidget ha bisogno di un layout
-MainWindow::MainWindow(std::vector<Sensor::WeatherStation>& myWeatherStations,QWidget *parent)
-    :QMainWindow(parent),myWeatherStations(myWeatherStations)
+MainWindow::MainWindow(std::vector<Sensor::WeatherStation*>& myWeatherStations,QWidget *parent)
+    :QMainWindow(parent), myWeatherStations(myWeatherStations)
 {
     setWindowTitle("Weather Station Simulator");
     //set content widget
@@ -14,9 +14,6 @@ MainWindow::MainWindow(std::vector<Sensor::WeatherStation>& myWeatherStations,QW
     //connect(contentWidget,&ContentWidget::updatePanelAfterChanges,this,&MainWindow::update);
 }
 
-MainWindow::~MainWindow()
-{
-
-}
+MainWindow::~MainWindow(){}
 
 }
